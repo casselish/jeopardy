@@ -1,0 +1,22 @@
+{
+  "12345": {
+    "id": "12345",
+    "username": "jeopardylover@gmail.com",
+    "name": "Joey",
+    "email": "jeopardylover@gmail.com",
+    "comments": [
+      "4589"
+    ],
+    "commentLikes": [
+      "4589"
+    ],
+    "questionLikes": [
+      "14829",
+      "67890"
+    ],
+    "logins": [
+      "12/13/20 8:30am",
+      "12/15/20 9:13am"
+    ]
+  }
+}

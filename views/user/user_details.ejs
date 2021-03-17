@@ -1,0 +1,21 @@
+<%-include('../partials/header', {page_title:"Question Details"})-%>
+
+    <div class="jumbotron">
+        <h1 class="lead"><%= users["name"] %></h1>
+    </div>
+
+	<img src='images/user.png' height="200" width ="150"></img>
+
+	<% Object.keys(users).forEach(function(key){ %>
+		<% if(key!='comments'&key!='commentLikes'&key!="questionLikes"){ %>
+			<h3><%= key %>: <%= users[key] %></h3>
+		<% } if (key=='comments') { %>
+      <% for (let i = 0; i <= users[key].length -1; i ++) { %>
+        <h3> <%= key %>: commented on comment <%= users[key][i] %> </a></h3>
+    <%} %>
+    <%} %>
+	<% }); %>
+	<a href="/users">Return to List</a>
+  <a href="/user/<%=userID%>/edit">Edit User</a>
+
+  <%-include('../partials/footer')-%>

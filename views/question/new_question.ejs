@@ -1,0 +1,21 @@
+<%-include('../partials/header', {page_title:"Add a new movie"})-%>
+
+	<h1>The Jeopardy Source</h1>
+	<br>
+
+	<h2>Want to add this question?</h2>
+	<% console.log(apiquestion) %>
+
+	<h3>Question: <%= apiquestion.question %></h3>
+	<h3>Answer: <%= apiquestion.answer %></h3>
+	<h3>Category: <%= apiquestion.category %></h3>
+	<h3>Difficulty: <%= apiquestion.difficulty %></h3>
+	<h3>Keywords: <%= apiquestion.keywords %></h3>
+	<form action="/question/<%=apiquestion.id%>" method="POST">
+	<button>Add Question</button>
+	</form>
+	<form action="/questions" method="GET">
+	<button>Cancel</button>
+	</form>
+
+	<%-include('../partials/footer')-%>

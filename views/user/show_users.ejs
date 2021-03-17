@@ -1,0 +1,29 @@
+<%-include('../partials/header', {page_title:"All Users"})-%>
+<div class="jumbotron">
+    <h1>Welcome to the Jeopardy Source!</h1>
+    <p class="lead">How much trivia do YOU know?</p>
+</div>
+
+<div class="row">
+<% Object.keys(users).forEach(function(key, i){ %>
+	<div class="col-md-4">
+	<img src="images/user.png" width ="50%"></img>
+	<h3><a href="/user/<%= key %>" id="<%= key %>"> <%= users[key].name %></a></h3>
+	<form action="/user/<%= key %>?_method=DELETE" method="POST">
+	  <button>Delete User</button>
+	</form>
+	</div>
+    <%if ((i+1)%3==0 && i!=0){ %>
+       </div> <!-- end the row div-->
+           <div class="row">
+        <% } %>
+
+	<% }) %>
+    </div> <!--last row -->
+    <br>
+<h2> Want to create a new user?</h2>
+<form action="/user/create" method="GET">
+	<button>Create new user</button>
+</form>
+
+<%-include('../partials/footer')-%>
