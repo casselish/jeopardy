@@ -11,16 +11,16 @@ router.get('/', function(req, res){
   res.redirect('/questions');
 });
 
-router.get('/users', function(req, res){
-  let userList = User.getAllUsers();
+router.get('/users', async function(req, res){
+  let userList = await User.getAllUsers();
 
   res.status(200);
   res.setHeader('Content-Type', 'text/html');
   res.render('user/show_users.ejs', {users: userList});
 });
 
-router.get('/user/create', function(req, res){
-  let userList = User.getAllUsers();
+router.get('/user/create', async function(req, res){
+  let userList = await User.getAllUsers();
 
   res.status(200);
   res.setHeader('Content-Type', 'text/html');
@@ -53,8 +53,8 @@ router.post('/user/:id', function(req, res) {
 
 });
 
-router.get('/user/:id', function(req, res) {
-  let userList = User.getAllUsers();
+router.get('/user/:id', async function(req, res) {
+  let userList = await User.getAllUsers();
   let userTitles = Object.keys(userList);
   let id = req.params.id;
   let questionList = Question.getAllQuestions();

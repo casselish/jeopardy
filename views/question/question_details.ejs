@@ -9,33 +9,12 @@
 	<% Object.keys(questions).forEach(function(key){ %>
 		<% if(key!='comments'&key!='likes'&key!='id'){ %>
 			<h3><%= key %>: <%= questions[key] %></h3>
-		<% }else if (key == 'id') {%>
-      <% console.log(questions[key]); %>
+
+  <%}else if (key == 'id') {%>
+      <% console.log("this id " + questions[key]); %>
       <h3 id="id"> <%= questions[key] %></h3>
-    <%} else if (key == 'comments') {%>
-      <h2>Comments: <span id="comment_display">
-        <% Object.keys(questions[key]).forEach(function(comment){ %>
-        <h3><%= key %>:<%= questions[key][comment]["text"] %></h3>
-        <h3> </h3>
-        <h3>comment made by user <%=questions[key][comment]["authorID"] %> </h3>
-        <br />
-
-</h2>
-    <%});%>
-    <h3> LIKES: <span id="comment_likes">></span> </h2>
-    <button id="like_button" type="button"> Like (this button is a stand-in for all of the like buttons (one per comment) that will be on this page )</button>
-    <div id="commentsdiv"> </div>
-    <label for="commentText">Comment:</label><br>
-      <input type="text" id="commentText" name="commentText"><br>
-
-    <label for="commentAuthorID">AuthorID:</label><br>
-      <input type="text" id="commentAuthorID" name="commentAuthorID"><br>
-
-    <label for="commentCreationDate">Date:</label><br>
-      <input type="text" id="commentCreationDate" name="commentCreationDate"><br>
-
-    <input type="button" id= "comment_form" value="Submit">
-    <%}%>
+    <%} %>
+  
 	<% }); %>
   <script src="/js/questiondetails_scripts.js"></script>
 	<a href="/questions">Return to List</a>

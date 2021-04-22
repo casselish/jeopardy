@@ -1,17 +1,23 @@
-<%-include('../partials/header', {page_title:"Add a new movie"})-%>
+<%-include('../partials/header', {page_title:"Add a new question"})-%>
 
 	<h1>The Jeopardy Source</h1>
 	<br>
 
 	<h2>Want to add this question?</h2>
-	<% console.log(apiquestion) %>
+	<% console.log("here's the question: " + question) %>
+	<form action="/question/<%=question.id%>" method="POST">
+		<label for="question">Question:</label><br>
+		<input type="text" id="question" name="question" value= "<%= question.question %>">  <br>
 
-	<h3>Question: <%= apiquestion.question %></h3>
-	<h3>Answer: <%= apiquestion.answer %></h3>
-	<h3>Category: <%= apiquestion.category %></h3>
-	<h3>Difficulty: <%= apiquestion.difficulty %></h3>
-	<h3>Keywords: <%= apiquestion.keywords %></h3>
-	<form action="/question/<%=apiquestion.id%>" method="POST">
+		<label for="answer">Answer:</label><br>
+		<input type="text" id="answer" name="answer" value= "<%= question.answer %>">  <br>
+
+		<label for="category">Category:</label><br>
+		<input type="text" id="category" name="category" value= "<%= question.category["title"] %>">  <br>
+
+		<label for="value">Difficulty:</label><br>
+		<input type="text" id="value" name="value" value= "<%= question.value %>">  <br>
+
 	<button>Add Question</button>
 	</form>
 	<form action="/questions" method="GET">
