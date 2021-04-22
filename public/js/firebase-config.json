@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "jeopardy-real",
+  "private_key_id": "3296123f011755099f3a03af86939637bf7559b6",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDCx1wgEuRbuIMJ\nW+yIBDnvjHNyKhiaAg2hEcGKuL8yvxKanusBLN62z/zAfH+OWdWiTQvZRENMgI+a\n7CslJKSqghiUHfpzpj5jMn8NmKq/8gJ/cQsX5ZLXHm5arViEbAPSUc/ANSCkfao2\nckbunWtTyAzQTJ/2NiUdc19NEt6pdtm+w/9jM9CV2evuXW152kwTwCjeEgKJQikH\n3q9eQZIIaOyeT7GqJ53zzb5WPGxOyvlQw/IcItq7E4b9+u3uLk13ABTagMNgEVIE\nIcK7iHgZwYL/MNaQtMVIU3Ay3wy2jEm+htJg1lQA022oXHGYn4VnB2YsZkOOhu3v\nbnrv3aGXAgMBAAECggEAHsSgPF7PnN+GL4XKVOgaAMm2eNvGfBmD7qQf5xps9Yay\nWSNuawab/dPYEM351lJBiXxTOVRrrxuF08qnvBvQOTEI0ej0Za1moIPbBxpNKrn/\nhAMm5fT5X6rqcr98QprPdbs/rpSV3fYN28DsjIfoatkokQTxpdKCxWaysLmg27Lo\nOymmDqbjsAQgbQuc2RYv00jR5sm4FWL4lWhcX58K62spwOE2CcqWiMfAUGO2mgy/\n77ZxQbkLH9kiBhsOjASOJ5l+wuRZbsvEjL8oqbqV+sh6ByPH1z9tardh2Ai7vRxz\nTouBdPA2pUPJgj8YWchtc636XnIyiSkr0dBFLzO0uQKBgQDz28AMEQMlSBVEe4FD\nU88EW+Ku2ob8Gml9aryt3of00+FuotvmL6TqZNqoT9Voii0FpEqwI5VR63TjNGYW\n26Cg1DJ3Q4nc2DUomm0vE42zV+I2O1vDBz6Oe/dZoKmhxxagerA+UGmwew55g7vx\nKC5e2WGHwihY9e2PWzOIBblByQKBgQDMegjHiDkLLYbr18zSx0vvPbD2BhMiDUqx\ng7anOoZgQDYbYIFo6VCn0/vmO+nwZjU6THs2RTQItWa7clAqcTLUoVQBTzmPX0N0\nr4Ie8PWFYcEceuN00UdQDgGLPc8Y9v9AasC7GWWD0kShsrBJ0T8bZe+bg6+H+H2M\n8ex2Ewh4XwKBgGwU7taqR6GjhEGZF962a5+79gmXs5JTRoQe5ceOROX/bwAxUJOC\ndG6rCrrkv2qZK4E/oxbUfp8TY/g7xi/FYjlGM6PmnFj0vwLjBxeBbCGcBxgQUQhs\n0o4mZagk7GpWqjGwjyLfUyi0MeMrvwYQ0BSb9n1MUcO0JHmQa5OTLdv5AoGBAKu9\nA4qy+1ZMErobMkkGYty5r9uzFnbPOyEFQ3AJU7ubstYjpA19iOSswzGIuN/UuHgS\nrJnUXfPCiFp/lJ1RHiRAq9G9vNaSaJGkp2FdeJlilVNaU5hV/dNbMCjG7R5GtfRg\ntSdwGTcyb7pv3mjhemOEpk6zt8Y4CxtKRhSVv9N5AoGBAI3dOZB7cJk3b5Bqx8/v\nz34ZloJyuu75v+nb4gKbm7Pq3OsXkA4LGBU8esbqw+uJSAr3DVaH50x9VK8XfDWC\nSxg7brTEfE3jjGWDj1Q7zZ93+DhdljuYe9Ze3s8lEcBN1aRZwQh2sm0QFl3bfZBU\nRVBXR1pSNjmKoKtyEzg/PpB8\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-myj79@jeopardy-real.iam.gserviceaccount.com",
+  "client_id": "113911666360917936564",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-myj79%40jeopardy-real.iam.gserviceaccount.com"
+}

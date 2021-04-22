@@ -1,0 +1,19 @@
+<%-include('../partials/header', {page_title:"Edit Movie"})-%>
+
+
+<h1>The Jeopardy Source</h1>
+<br>
+<h2>Update <%= questions.question %></h2>
+
+<form action="/question/<%= questions.id%>?_method=PUT" method="POST">
+<ol>
+<% Object.keys(questions).forEach(function(key){ %>
+	<li><%=key%>: <input type="text" name="<%=key%>" value="<%= questions[key] %>">
+	</li>
+<% }); %>
+</ol>
+	<button>Update Question</button>
+</form>
+
+
+<%-include('../partials/footer')-%>
