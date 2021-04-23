@@ -40,19 +40,16 @@ exports.getQuestion = async function(id) {
 }
 
 exports.saveQuestion = function(id, newQuestion) {
-  //let allQuestions = await exports.getAllQuestions();
+  console.log(id);
   let question = db.collection('questions').doc(id);
   let setQuestion = question.set({
       "id": id,
       "authorID": newQuestion["authorID"],
-      "comments": newQuestion["comments"],
       "question": newQuestion["question"],
       "answer": newQuestion["answer"],
       "category": newQuestion["category"],
       "creationDate": newQuestion["creationDate"],
-      "likes": newQuestion["likes"],
       "difficulty": newQuestion["difficulty"],
-      "keywords": newQuestion["keywords"]
     });
   console.log("id: " + id);
   console.log("new question: " + newQuestion);

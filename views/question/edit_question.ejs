@@ -8,8 +8,10 @@
 <form action="/question/<%= questions.id%>?_method=PUT" method="POST">
 <ol>
 <% Object.keys(questions).forEach(function(key){ %>
+	<% if(key!='comments'&key!='likes'&key!='keywords'){ %>
 	<li><%=key%>: <input type="text" name="<%=key%>" value="<%= questions[key] %>">
 	</li>
+	<% } %>
 <% }); %>
 </ol>
 	<button>Update Question</button>
