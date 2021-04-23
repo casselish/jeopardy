@@ -12,7 +12,7 @@
 	<form action="/question/<%= key %>?_method=DELETE" method="POST">
 	  <button>Delete Question</button>
 	</form>
-	</div> 
+	</div>
     <%if ((i+1)%3==0 && i!=0){ %>
        </div> <!-- end the row div-->
            <div class="row">
@@ -21,10 +21,10 @@
 	<% }) %>
     </div> <!--last row -->
     <br>
-<h2> Want to add a new question to the The Jeopardy Source?</h2>
+<h2> Want to add a new, random question to the The Jeopardy Source?</h2>
 <form action="/question/create" method="GET">
-	<input type="text" name= "title" placeholder="Enter title to add...">
-	<button>Search for Question</button>
+	<!-- <input type="text" name= "title" placeholder="Enter title to add..."> -->
+	<button>Add a new question</button>
 </form>
 
 <%-include('../partials/footer')-%>

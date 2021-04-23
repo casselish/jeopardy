@@ -25,11 +25,6 @@ exports.getAllQuestions = async function() {
   }
 }
 
-exports.getAllAPIs = function() {
-  var apiData = fs.readFileSync('data/api.json', 'utf8');
-//  console.log(questionData);
-  return JSON.parse(apiData);
-}
 
 exports.getQuestion = async function(id) {
   try {
