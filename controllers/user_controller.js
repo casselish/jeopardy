@@ -28,7 +28,7 @@ router.get('/user/create', async function(req, res){
 
 });
 
-router.post('/user/:id', function(req, res) {
+router.post('/user/:id', async function(req, res) {
   let newIDArray = [Math.floor((Math.random() * 9) + 1),Math.floor((Math.random() * 9) + 1),Math.floor((Math.random() * 9) + 1),Math.floor((Math.random() * 9) + 1),Math.floor((Math.random() * 9) + 1)];
   let newID = "";
   newIDArray.forEach(function (currentValue) {
@@ -36,19 +36,19 @@ router.post('/user/:id', function(req, res) {
   });
   let id = newID;
   //console.log(request);
-  let newestUserData = {};
-  //console.log("request " + req.body);
-  newestUserData["id"] = newID;
-  newestUserData["username"]= req.body.username;
-  newestUserData["name"]= req.body.name;
-  newestUserData["email"]= req.body.email;
-  newestUserData["comments"]= [];
-  newestUserData["commentLikes"]= [];
-  newestUserData["questionLikes"]= [];
-  newestUserData["logins"] = [];
-  newestUserData["owner"] = false;
+  let newUser = {
+    "id": id,
+    "username": req.body.username,
+    "name": req.body.name,
+    "email": req.body.email,
+    "comments": [],
+    "commentLikes": [],
+    "questionLikes": [],
+    "logins": []
+  }
 
-  User.saveUser(newID, newestUserData);
+  User.saveUser(id, newUser);
+  let userList = await User.getAllUsers();
   res.redirect('/users');
 
 });
@@ -57,7 +57,7 @@ router.get('/user/:id', async function(req, res) {
   let userList = await User.getAllUsers();
   let userTitles = Object.keys(userList);
   let id = req.params.id;
-  let questionList = Question.getAllQuestions();
+  let questionList = await Question.getAllQuestions();
   let questionTitles = Object.keys(questionList);
   let questionVar = "";
   //console.log(id);
@@ -90,8 +90,8 @@ router.get('/user/:id', async function(req, res) {
     }
 });
 
-router.get('/user/:id/edit', function(req,res){
-  let thisUser = User.getUser(req.params.id);
+router.get('/user/:id/edit', async function(req,res){
+  let thisUser = await User.getUser(req.params.id);
   thisUser.id=req.params.id;
 
   if(thisUser){
@@ -107,7 +107,7 @@ router.get('/user/:id/edit', function(req,res){
   }
 });
 
-router.put('/user/:id', function(req,res){
+router.put('/user/:id', async function(req,res){
   let newUserData = {};
   let id= req.body.id;
   newUserData["id"] = req.body.id;
@@ -120,12 +120,14 @@ router.put('/user/:id', function(req,res){
   newUserData["logins"] = req.body.logins.split(",");
 
   User.updateUser(id, newUserData);
+  let thisUser = await User.getUser(req.params.id);
   res.redirect('/users');
 });
 
-router.delete('/user/:id', function(req, res){
+router.delete('/user/:id', async function(req, res){
   //console.log(req.params.id);
   User.deleteUser(req.params.id);
+  let userList = await User.getAllUsers();
   res.redirect('/users');
 });
 

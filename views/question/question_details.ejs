@@ -4,17 +4,15 @@
         <h1 class="lead"><%= questions["question"] %></h1>
     </div>
 
-	<img src='images/jeopardy.jpg' height="200" width ="150"></img>
-
 	<% Object.keys(questions).forEach(function(key){ %>
-		<% if(key!='comments'&key!='likes'&key!='id'){ %>
+		<% if(key!='comments'&key!='likes'&key!='id'&key!='keywords'){ %>
 			<h3><%= key %>: <%= questions[key] %></h3>
 
   <%}else if (key == 'id') {%>
       <% console.log("this id " + questions[key]); %>
-      <h3 id="id"> <%= questions[key] %></h3>
+      <h3 id="id"> id: <%= questions[key] %></h3>
     <%} %>
-  
+
 	<% }); %>
   <script src="/js/questiondetails_scripts.js"></script>
 	<a href="/questions">Return to List</a>

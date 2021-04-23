@@ -20,15 +20,15 @@ router.get('/questions', async function(req, res){
 });
 
 router.get('/question/create', function(req, res){
-  let title=req.query.title;
-  title=title.replace(/ /g, '+');
 
-  request("http://jservice.io/api/clues?question="+title, function(err, response, body) {
+  request("http://jservice.io/api/clues?question=h", function(err, response, body) {
       if(!err){
         let questionResponse = JSON.parse(body);
+        let responseArray = Object.keys(questionResponse);
+        let newQuestion = Math.floor(Math.random() * responseArray.length-1);
         res.status(200);
         res.setHeader('Content-Type', 'text/html');
-        res.render('question/new_question.ejs', {question: questionResponse[0]})
+        res.render('question/new_question.ejs', {question: questionResponse[newQuestion]})
       }
       else{
         res.redirect('/questions');
