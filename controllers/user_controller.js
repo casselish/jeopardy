@@ -41,9 +41,6 @@ router.post('/user/:id', async function(req, res) {
     "username": req.body.username,
     "name": req.body.name,
     "email": req.body.email,
-    "comments": [],
-    "commentLikes": [],
-    "questionLikes": [],
     "logins": []
   }
 
@@ -59,27 +56,15 @@ router.get('/user/:id', async function(req, res) {
   let id = req.params.id;
   let questionList = await Question.getAllQuestions();
   let questionTitles = Object.keys(questionList);
-  let questionVar = "";
   //console.log(id);
   console.log(userTitles);
 
   if (userTitles.includes(id)) {
-    for (let i =0; i <= userList[id]["comments"].length -1; i ++) {
-      console.log(userList[id]["comments"][i]);
-      questionTitles.forEach(function (currentValue, index){
-        Object.keys(questionList[currentValue]["comments"]).forEach(function (question){
-          if (userList[id]["comments"][i] == question) {
-            questionVar = currentValue;
-          }
-        });
-      });
-    }
       res.status(200);
       res.setHeader('Content-Type', 'text/html')
       res.render("user/user_details.ejs",{
         users: userList[id],
         userID: id,
-        questionID: questionVar,
         questions: questionList
       });
     }else{
@@ -114,9 +99,6 @@ router.put('/user/:id', async function(req,res){
   newUserData["username"]= req.body.username;
   newUserData["name"]= req.body.name;
   newUserData["email"]= req.body.email;
-  newUserData["comments"]= req.body.comments.split(",");
-  newUserData["commentLikes"]= req.body.commentLikes.split(",");
-  newUserData["questionLikes"]= req.body.questionLikes.split(",");
   newUserData["logins"] = req.body.logins.split(",");
 
   User.updateUser(id, newUserData);

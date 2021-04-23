@@ -38,9 +38,6 @@ exports.saveUser = async function(id, newUser) {
       "username": newUser["username"],
       "name": newUser["name"],
       "email": newUser["email"],
-      "comments": newUser["comments"],
-      "commentLikes": newUser["commentLikes"],
-      "questionLikes": newUser["questionLikes"],
       "logins": newUser["logins"]
     });
   console.log("user: " + user);
@@ -53,5 +50,6 @@ exports.updateUser = function(id, userData) {
 exports.deleteUser = async function(id) {
   var userData = await exports.getAllUsers();
   db.collection('users').doc(id).delete();
+  var userData2 = await exports.getAllUsers();
   //fs.writeFileSync('data/user.json', JSON.stringify(userData));
 }

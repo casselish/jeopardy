@@ -25,14 +25,11 @@ request("http://jservice.io/api/categories?count=100", function (err, response, 
             let newClue = {
               "id": currentValue.id,
               "authorID": 00000,
-              "comments": [],
               "question": currentValue.question,
               "answer": currentValue.answer,
               "category": currentValue.category.title,
               "creationDate": currentValue.created_at,
-              "likes": [],
               "difficulty": currentValue.value,
-              "keywords": []
             }
             clues[newClue["id"]]=newClue;
           });

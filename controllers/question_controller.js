@@ -67,14 +67,11 @@ router.post('/question/:apiID', function(req, res){
   let newQuestion={
     "id": apiID,
     "authorID": 0000,
-    "comments": [],
     "question": req.body.question,
     "answer": req.body.answer,
     "category": req.body.category,
     "creationDate": "March 16, 2021",
-    "likes": [],
     "difficulty": req.body.value,
-    "keywords": []
   }
   Question.saveQuestion(apiID, newQuestion);
   res.redirect('/questions');
@@ -98,38 +95,38 @@ router.get('/question/:id/edit', async function(req,res){
 });
 
 router.put('/question/:id', function(req,res){
+  console.log("here");
   let newQuestionData = {};
+  console.log(req.body.id);
   let id= req.body.id;
+  newQuestionData["id"] = id;
   newQuestionData["authorID"] = req.body.authorID;
-  newQuestionData["comments"]= req.body.comments.split(",");
   newQuestionData["question"]= req.body.question;
   newQuestionData["answer"]= req.body.answer;
   newQuestionData["category"]= req.body.category;
   newQuestionData["creationDate"]= req.body.creationDate;
-  newQuestionData["likes"]= req.body.likes.split(",");
   newQuestionData["difficulty"] = req.body.difficulty;
-  newQuestionData["keywords"] = req.body.keywords;
 
   Question.updateQuestion(id, newQuestionData);
   res.redirect('/questions');
 });
 
-router.post('/question/likes/:id', async function(req, res) {
-  let questionList = await Question.getAllQuestions();
-  let thisQuestion = Question.getQuestion(req.params.id);
-  thisQuestion.id=req.params.id;
-
-  if(questionList[thisQuestion.id]){
-  res.status(200);
-  res.setHeader('Content-Type', 'text/json');
-  res.send(thisQuestion);
-  }else{
-    res.status(404);
-    res.setHeader('Content-Type', 'text/json');
-    res.send('{results: "no comment"}');
-  }
-
-});
+// router.post('/question/likes/:id', async function(req, res) {
+//   let questionList = await Question.getAllQuestions();
+//   let thisQuestion = Question.getQuestion(req.params.id);
+//   thisQuestion.id=req.params.id;
+//
+//   if(questionList[thisQuestion.id]){
+//   res.status(200);
+//   res.setHeader('Content-Type', 'text/json');
+//   res.send(thisQuestion);
+//   }else{
+//     res.status(404);
+//     res.setHeader('Content-Type', 'text/json');
+//     res.send('{results: "no comment"}');
+//   }
+//
+// });
 
 // router.post('/question/comments/:id', async function(req, res) {
 //   let questionList = await Question.getAllQuestions();
@@ -173,34 +170,3 @@ router.delete('/question/:id', async function(req, res){
 });
 
 module.exports = router
-
-
-
-
-
-//CUT FROM question DETAILS.ejs
-//
-// <!-- else if (key == 'comments') {%>
-//  <h2>Comments: <span id="comment_display">
-//    <% Object.keys(questions[key]).forEach(function(comment){ %>
-//    <h3><%= key %>:<%= questions[key][comment]["text"] %></h3>
-//    <h3> </h3>
-//    <h3>comment made by user <%=questions[key][comment]["authorID"] %> </h3>
-//    <br />
-//
-// </h2>
-// <%});%>
-// <h3> LIKES: <span id="comment_likes">></span> </h2>
-// <button id="like_button" type="button"> Like (this button is a stand-in for all of the like buttons (one per comment) that will be on this page )</button>
-// <div id="commentsdiv"> </div>
-// <label for="commentText">Comment:</label><br>
-//  <input type="text" id="commentText" name="commentText"><br>
-//
-// <label for="commentAuthorID">AuthorID:</label><br>
-//  <input type="text" id="commentAuthorID" name="commentAuthorID"><br>
-//
-// <label for="commentCreationDate">Date:</label><br>
-//  <input type="text" id="commentCreationDate" name="commentCreationDate"><br>
-//
-// <input type="button" id= "comment_form" value="Submit">
-// <%}%> -->

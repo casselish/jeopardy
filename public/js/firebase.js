@@ -30,14 +30,13 @@ questionDataIDs.forEach(function (currentValue, index) {
     let setQuestion = question.set({
         "id": currentValue,
         "authorID": questionData[currentValue]["authorID"],
-        "comments": questionData[currentValue]["comments"],
         "question": questionData[currentValue]["question"],
         "answer": questionData[currentValue]["answer"],
         "category": questionData[currentValue]["category"],
         "creationDate": questionData[currentValue]["creationDate"],
-        "likes": questionData[currentValue]["likes"],
+
         "difficulty": questionData[currentValue]["difficulty"],
-        "keywords": questionData[currentValue]["keywords"]
+
       });
   }
 });
@@ -50,9 +49,6 @@ userDataIDs.forEach(function (currentValue, index) {
       "username": userData[currentValue]["username"],
       "name": userData[currentValue]["name"],
       "email": userData[currentValue]["email"],
-      "comments": userData[currentValue]["comments"],
-      "commentLikes": userData[currentValue]["commentLikes"],
-      "questionLikes": userData[currentValue]["questionLikes"],
       "logins": userData[currentValue]["logins"]
     });
   }

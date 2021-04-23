@@ -4,16 +4,13 @@
         <h1 class="lead"><%= questions["question"] %></h1>
     </div>
 
-	<% Object.keys(questions).forEach(function(key){ %>
-		<% if(key!='comments'&key!='likes'&key!='id'&key!='keywords'){ %>
-			<h3><%= key %>: <%= questions[key] %></h3>
+  <h3>Answer: <%= questions["answer"] %></h3>
+  <h3>Category: <%= questions["category"] %></h3>
+  <h3>Difficulty: <%= questions["difficulty"] %></h3>
+  <h4>Creation date: <%= questions["creationDate"] %></h4>
+  <h4>AuthorID: <%= questions["authorID"] %></h4>
+  <h4>ID: <%= questions["id"] %></h4>
 
-  <%}else if (key == 'id') {%>
-      <% console.log("this id " + questions[key]); %>
-      <h3 id="id"> id: <%= questions[key] %></h3>
-    <%} %>
-
-	<% }); %>
   <script src="/js/questiondetails_scripts.js"></script>
 	<a href="/questions">Return to List</a>
   <a href="/question/<%=questions["id"]%>/edit">Edit Question</a>
