@@ -9,7 +9,7 @@ request("http://jservice.io/api/categories?count=100", function (err, response, 
   let categoryResponse = JSON.parse(body);
   //console.log(categoryResponse);
   if (!err) {
-    for (var i = 0; i <= categoryResponse.length-1; i++) {
+    for (var i = 0; i <= 3; i++) {
       categoryIDs.push(categoryResponse[i].id);
     }
     console.log(categoryIDs);

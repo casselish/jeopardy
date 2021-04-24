@@ -34,7 +34,6 @@ questionDataIDs.forEach(function (currentValue, index) {
         "answer": questionData[currentValue]["answer"],
         "category": questionData[currentValue]["category"],
         "creationDate": questionData[currentValue]["creationDate"],
-
         "difficulty": questionData[currentValue]["difficulty"],
 
       });

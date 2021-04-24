@@ -54,8 +54,6 @@ exports.saveQuestion = function(id, newQuestion) {
   console.log("id: " + id);
   console.log("new question: " + newQuestion);
 
-  //allQuestions[id] = newQuestion;
-  //fs.writeFileSync('data/question.json', JSON.stringify(questionData));
 }
 
 exports.updateQuestion = function(id, questionData) {
